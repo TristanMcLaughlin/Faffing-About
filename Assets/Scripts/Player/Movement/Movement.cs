@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private Rigidbody PlayerBody;
+    [SerializeField] public Rigidbody PlayerBody;
     [SerializeField] private Transform CameraTransform;
 
-    [SerializeField] private float Speed;
+    [SerializeField] public float Speed;
     [SerializeField] private float Sensitivity;
-    [SerializeField] private float JumpForce;
+    [SerializeField] public float JumpForce;
 
     // Update is called once per frame
     void Update()
     {
         ProcessControllerMovement();
     }
-
-    //private void Lateupdate()
-    //{
-    //    Vector3 RelativeRotation = Vector3.Lerp();
-    //}
 
     private void ProcessControllerMovement() 
     {
