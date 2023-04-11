@@ -27,5 +27,10 @@ namespace Enemies
             float PlayerSpeed = Mathf.Clamp(navMeshAgent.velocity.sqrMagnitude, 0f, MaxSpeed);
             GetComponent<Animator>().SetFloat(WalkAnimation, PlayerSpeed / MaxSpeed);
         }
+
+        void Hit()
+        {
+
+        }
     }
 }

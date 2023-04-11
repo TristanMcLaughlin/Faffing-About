@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace RPG.Combat
 {
@@ -49,7 +50,17 @@ namespace RPG.Combat
         {
             if (!CurrentlyInvincible)
             {
-                Debug.Log(damage);
+                Health TargetHealth = GetComponent<Health>();
+
+                if (TargetHealth)
+                {
+                    TargetHealth.Damage(damage);
+                    if(TargetHealth.CheckIfDead())
+                    {
+                        targets.Remove(this);
+                    }
+                }
+
                 StartCoroutine(FlashRedOnHit());
                 StartCoroutine(BecomeInvincible());
             }

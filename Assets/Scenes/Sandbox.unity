@@ -394,7 +394,7 @@ PrefabInstance:
     - target: {fileID: 1057764452, guid: 4a837930db8e27a48a5641a830362d36, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 423370919287145610}
+      objectReference: {fileID: 423370919287145610, guid: 6db7d4eace4cc094ea723b5a79c7cbbd, type: 3}
     - target: {fileID: 6002800715239137095, guid: 4a837930db8e27a48a5641a830362d36, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -568,10 +568,5 @@ PrefabInstance:
 --- !u!4 &423370919287145609 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2603515890114062417, guid: 6db7d4eace4cc094ea723b5a79c7cbbd, type: 3}
-  m_PrefabInstance: {fileID: 423370919287145603}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &423370919287145610 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 423370919287145610, guid: 6db7d4eace4cc094ea723b5a79c7cbbd, type: 3}
   m_PrefabInstance: {fileID: 423370919287145603}
   m_PrefabAsset: {fileID: 0}

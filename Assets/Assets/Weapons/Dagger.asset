@@ -15,6 +15,6 @@ MonoBehaviour:
   WeaponPrefab: {fileID: 8806642389203455293, guid: e9817ff83d169c94b8fad0e922dc1173, type: 3}
   WeaponOverride: {fileID: 0}
   CurrentProjectile: {fileID: 3960966772648576359, guid: 89236f660b54e7147b3cd8de05339349, type: 3}
-  AttackSpeed: 0
+  AttackSpeed: 0.8
   Range: 0
-  Damage: 0
+  Damage: 10

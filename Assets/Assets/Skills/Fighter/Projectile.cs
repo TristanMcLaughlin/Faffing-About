@@ -40,7 +40,6 @@ namespace RPG.Combat
                     Destroy(gameObject);
                     break;
                 }
-
             }
         }
     }

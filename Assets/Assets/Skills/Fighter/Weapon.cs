@@ -12,6 +12,7 @@ namespace RPG.Combat
         [SerializeField] float Range;
         [SerializeField] float Damage;
 
+
         public void SpawnWeapon(Transform HandTransform, Animator animator)
         {
             if (WeaponPrefab != null) {
@@ -32,6 +33,10 @@ namespace RPG.Combat
         public float GetRange()
         {
             return Range;
+        }
+        public float GetAttackSpeed()
+        {
+            return AttackSpeed;
         }
 
         public bool HasProjectile()

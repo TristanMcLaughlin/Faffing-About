@@ -744,6 +744,7 @@ GameObject:
   - component: {fileID: 1057764449}
   - component: {fileID: 1057764452}
   - component: {fileID: 1057764454}
+  - component: {fileID: 1474383273}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -836,7 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16511ff76bf3cf341a528996dfba5c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 423370919287145610, guid: 6db7d4eace4cc094ea723b5a79c7cbbd, type: 3}
+  Player: {fileID: 0}
 --- !u!114 &1057764454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,6 +852,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaterialOnHit: {fileID: 2100000, guid: c4dde64238b09d84f867757193d69419, type: 2}
   CurrentMeshRenderer: {fileID: 5954871541379793637}
+--- !u!114 &1474383273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6002800715239137095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 390ace53c86c5a04eb53e9261906453b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 25
 --- !u!1 &6002841415962811055
 GameObject:
   m_ObjectHideFlags: 0

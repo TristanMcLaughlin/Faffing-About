@@ -9,30 +9,32 @@ namespace RPG.Combat
     {
         [SerializeField] Transform HandTransform = null;
         [SerializeField] Weapon EquippedWeapon = null;
+
         private Transform PlayerTransform;
+        private Animator CurrentAnimator;
+        private bool CanAttack = true;
 
         void Start()
         {
+            CurrentAnimator = GetComponent<Animator>();
             PlayerTransform = GetComponent<Transform>();
             SpawnWeapon();
         }
 
         public void Attack()
         {
-            if (Input.GetButtonDown("Fire3"))
+            if (!EquippedWeapon) return;
+
+            if (Input.GetButtonDown("Fire3") && CanAttack)
             {
-                if (EquippedWeapon && EquippedWeapon.HasProjectile())
-                {
-                    EquippedWeapon.LaunchProjectile(HandTransform, PlayerTransform);
-                }
-                Debug.Log("Attacking");
+                StartCoroutine(SetAttackCooldown());
+                CurrentAnimator.SetTrigger("Attacking");
             }
         }
 
         public void SpawnWeapon()
         {
             if (EquippedWeapon == null) return;
-            Animator CurrentAnimator = GetComponent<Animator>();
             EquippedWeapon.SpawnWeapon(HandTransform, CurrentAnimator);
         }
 
@@ -40,6 +42,21 @@ namespace RPG.Combat
         void Update()
         {
             Attack();
+        }
+
+        private IEnumerator SetAttackCooldown()
+        {
+            CanAttack = false;
+            yield return new WaitForSeconds(EquippedWeapon.GetAttackSpeed());
+            CanAttack = true;
+        }
+
+        void Hit()
+        {
+            if (EquippedWeapon.HasProjectile())
+            {
+                EquippedWeapon.LaunchProjectile(HandTransform, PlayerTransform);
+            }
         }
     }
 }
