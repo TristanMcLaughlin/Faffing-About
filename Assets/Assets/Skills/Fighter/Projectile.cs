@@ -11,36 +11,70 @@ namespace RPG.Combat
         [SerializeField] float Speed;
         [SerializeField] float TimeToDestroy;
         [SerializeField] bool HasPunchThrough;
-        float Damage = 0;
 
-        void Start()
-        {
-            Destroy(gameObject, TimeToDestroy);
-        }
-
+        Vector3 StartPosition;
+        float Range = 0f;
+        float Damage = 0f;
+        string Friendly = null;
 
         public void SetDamage(float damage)
         {
             Damage = damage;
         }
 
-        // Update is called once per frame
-        void Update()
+        public void SetFriendly(string tag)
         {
-            transform.Translate(Vector3.forward * Speed * Time.deltaTime);
-            transform.localScale += new Vector3(0.04f, 0f, 0f);
+            Friendly = tag;
+        }
 
+        public void SetRange(float range)
+        {
+            Range = range;
+        }
+
+        private bool ShouldDespawn()
+        {
+            return Vector3.Distance(gameObject.transform.position, StartPosition) > Range;
+        }
+
+        private void DamageEnemiesInRange()
+        {
             List<Target> closeTargets = Target.GetClosest(transform.position, 3f);
             foreach (Target target in closeTargets)
             {
-                target.Damage(Damage);
-
-                if (!HasPunchThrough)
+                if (target.gameObject.tag != Friendly)
                 {
-                    Destroy(gameObject);
-                    break;
+                    target.Damage(Damage);
+
+                    if (!HasPunchThrough)
+                    {
+                        Destroy(gameObject);
+                        break;
+                    }
                 }
             }
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (ShouldDespawn()) {
+                Destroy(gameObject);
+            }
+
+            // Refactor this, not all projectiles will act the same
+            // For example some might not move forward but will instead be launched at a specific spot
+            // Some might grow
+            // Some might take on bullet 
+            transform.Translate(Vector3.forward * Speed * Time.deltaTime);
+            transform.localScale += new Vector3(0.04f, 0f, 0f);
+
+            DamageEnemiesInRange();
+        }
+
+        private void Start()
+        {
+            StartPosition = transform.position;
         }
     }
 }

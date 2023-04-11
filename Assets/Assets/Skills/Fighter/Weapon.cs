@@ -12,7 +12,6 @@ namespace RPG.Combat
         [SerializeField] float Range;
         [SerializeField] float Damage;
 
-
         public void SpawnWeapon(Transform HandTransform, Animator animator)
         {
             if (WeaponPrefab != null) {
@@ -44,10 +43,12 @@ namespace RPG.Combat
             return CurrentProjectile != null;
         }
 
-        public void LaunchProjectile(Transform HandTransform, Transform PlayerTransform)
+        public void LaunchProjectile(Transform HandTransform, Transform PlayerTransform, string tag)
         {
             Projectile projectileInstance = Instantiate(CurrentProjectile, HandTransform.position, PlayerTransform.rotation);
+            projectileInstance.SetRange(Range);
             projectileInstance.SetDamage(Damage);
+            projectileInstance.SetFriendly(tag);
         }
     }
 }

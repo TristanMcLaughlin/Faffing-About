@@ -25,7 +25,15 @@ namespace RPG.Combat
         {
             if (!EquippedWeapon) return;
 
-            if (Input.GetButtonDown("Fire3") && CanAttack)
+            if (Input.GetButtonDown("Fire3"))
+            {
+                AutoAttack();
+            }
+        }
+
+        public void AutoAttack()
+        {
+            if (CanAttack)
             {
                 StartCoroutine(SetAttackCooldown());
                 CurrentAnimator.SetTrigger("Attacking");
@@ -55,8 +63,13 @@ namespace RPG.Combat
         {
             if (EquippedWeapon.HasProjectile())
             {
-                EquippedWeapon.LaunchProjectile(HandTransform, PlayerTransform);
+                EquippedWeapon.LaunchProjectile(HandTransform, PlayerTransform, gameObject.tag);
             }
+        }
+
+        public float GetRange()
+        {
+            return EquippedWeapon.GetRange();
         }
     }
 }
