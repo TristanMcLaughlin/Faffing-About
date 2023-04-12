@@ -26,11 +26,16 @@ namespace RPG.Combat
                     CurrentAnimator.SetTrigger("Death");
                 }
 
-                Destroy(gameObject);
+                Destroy(gameObject, 20f);
                 return true;
             }
 
             return false;
+        }
+
+        public bool IsDead()
+        {
+            return CurrentHealth <= 0;
         }
 
         public void Damage(float damage)
