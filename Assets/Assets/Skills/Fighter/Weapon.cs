@@ -11,6 +11,7 @@ namespace RPG.Combat
         [SerializeField] float AttackSpeed;
         [SerializeField] float Range;
         [SerializeField] float Damage;
+        [SerializeField] string ItemName = "Item";
 
         public void SpawnWeapon(Transform HandTransform, Animator animator)
         {

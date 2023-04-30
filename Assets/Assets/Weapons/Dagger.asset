@@ -18,3 +18,4 @@ MonoBehaviour:
   AttackSpeed: 0.8
   Range: 3
   Damage: 10
+  ItemName: Dagger

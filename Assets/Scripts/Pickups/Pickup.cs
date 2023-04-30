@@ -25,6 +25,7 @@ namespace RPG.Combat
         void Start ()
         {
             itemText.enabled = false;
+            itemText.text = PickupPrefab.name;
             Player = GameObject.FindWithTag("Player");
         }
 
