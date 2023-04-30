@@ -68,5 +68,16 @@ namespace RPG.Combat
         {
             itemText.enabled = false;
         }
+
+        public ScriptableObject getItem()
+        {
+            return this.PickupPrefab;
+        }
+
+        public void RemoveAndDestroy()
+        {
+            pickups.Remove(this);
+            Destroy(this.gameObject);
+        }
     }
 }

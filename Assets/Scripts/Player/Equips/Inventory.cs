@@ -6,7 +6,7 @@ namespace RPG.Combat
 {
     public class Inventory : MonoBehaviour
     {
-        [SerializeField] List<Pickup> pickups = new List<Pickup>();
+        [SerializeField] List<InventoryItem> inventoryItems = new List<InventoryItem>();
 
         void Update()
         {
@@ -15,7 +15,8 @@ namespace RPG.Combat
             {
                 if (Input.GetButtonDown("Fire1"))
                 {
-                    print(pickup.name);
+                    inventoryItems.Add(new InventoryItem(pickup.getItem()));
+                    pickup.RemoveAndDestroy();
                 }
             }
         }
