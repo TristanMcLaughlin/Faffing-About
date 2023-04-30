@@ -9,6 +9,7 @@ namespace RPG.Combat
     {
         [SerializeField] Transform HandTransform = null;
         [SerializeField] Weapon EquippedWeapon = null;
+        [SerializeField] Weapon DefaultWeapon = null;
 
         private Transform PlayerTransform;
         private Animator CurrentAnimator;
@@ -18,7 +19,7 @@ namespace RPG.Combat
         {
             CurrentAnimator = GetComponent<Animator>();
             PlayerTransform = GetComponent<Transform>();
-            SpawnWeapon();
+            EquipWeapon(DefaultWeapon);
         }
 
         public void Attack()
@@ -40,9 +41,8 @@ namespace RPG.Combat
             }
         }
 
-        public void SpawnWeapon()
+        public void EquipWeapon(Weapon weapon)
         {
-            if (EquippedWeapon == null) return;
             EquippedWeapon.SpawnWeapon(HandTransform, CurrentAnimator);
         }
 
