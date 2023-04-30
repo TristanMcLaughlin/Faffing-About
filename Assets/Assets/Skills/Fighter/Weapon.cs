@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RPG.Combat
 {
     [CreateAssetMenu(fileName = "Weapon", menuName = "Weapons/New Weapon", order = 0)]
-    public class Weapon: ScriptableObject
+    public class Weapon: PickupObject
     {
         [SerializeField] GameObject WeaponPrefab = null;
         [SerializeField] AnimatorOverrideController WeaponOverride = null;
@@ -11,7 +12,6 @@ namespace RPG.Combat
         [SerializeField] float AttackSpeed;
         [SerializeField] float Range;
         [SerializeField] float Damage;
-        [SerializeField] string ItemName = "Item";
 
         public void SpawnWeapon(Transform HandTransform, Animator animator)
         {
@@ -51,5 +51,6 @@ namespace RPG.Combat
             projectileInstance.SetDamage(Damage);
             projectileInstance.SetFriendly(tag);
         }
+
     }
 }

@@ -6,7 +6,7 @@ namespace RPG.Combat
 {
     public class Pickup : MonoBehaviour
     {
-        [SerializeField] ScriptableObject PickupPrefab = null;
+        [SerializeField] PickupObject PickupPrefab = null;
         [SerializeField] TMP_Text itemText;
 
         private GameObject Player;
@@ -70,7 +70,7 @@ namespace RPG.Combat
             itemText.enabled = false;
         }
 
-        public ScriptableObject getItem()
+        public PickupObject getItem()
         {
             return this.PickupPrefab;
         }

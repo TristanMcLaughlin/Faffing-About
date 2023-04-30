@@ -19,3 +19,4 @@ MonoBehaviour:
   Range: 3
   Damage: 10
   ItemName: Dagger
+  ItemImage: {fileID: 21300000, guid: 2bb4e96f5d0b02c468932d665a015c54, type: 3}

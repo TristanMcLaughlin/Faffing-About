@@ -8,12 +8,17 @@ namespace RPG.Combat
     [Serializable]
     public class InventoryItem
     {
-        public ScriptableObject invEntry;
+        public PickupObject invEntry;
 
         // Constructor
-        public InventoryItem(ScriptableObject invEntry)
+        public InventoryItem(PickupObject invEntry)
         {
             this.invEntry = invEntry;
+        }
+
+        public Sprite GetItemImage()
+        {
+            return invEntry.GetItemImage();
         }
     }
 }

@@ -2,6 +2,7 @@ using RPG.Combat;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RPG.Combat
 {
@@ -34,6 +35,9 @@ namespace RPG.Combat
                 RectTransform itemSlotTransform = Instantiate(ItemSlotTemplate, ItemSlotContainer).GetComponent<RectTransform>();
                 itemSlotTransform.gameObject.SetActive(true);
                 itemSlotTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
+                Image image = itemSlotTransform.Find("image").GetComponent<Image>();
+                image.sprite = Item.GetItemImage();
+
                 x++;
 
                 if (x > 4)
